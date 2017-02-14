@@ -1,0 +1,6 @@
+#mailster-map li:first-child .cf7-mailster-remove-field{
+	display: none;
+}
+.cf7-mailster-remove-field{
+	text-decoration: none;
+}
