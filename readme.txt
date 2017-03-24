@@ -22,10 +22,15 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 4. Save your form
 5. Select The Mailster tab and configure the form for Mailster
 
+== Screenshots ==
+
+1. Option Interface.
+
 == Changelog ==
 
 = 1.0 =
 * initial release
+
 
 == Additional Info One ==
 
