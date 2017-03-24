@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Mailster Contact Form 7
-Plugin URI: http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+MailsterCF7
+Plugin URI: http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster
 Description: Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter
 Version: 1.0
 Author: revaxarts.com
@@ -86,7 +86,7 @@ class MailsterCF7 {
 
 		$properties = $form->get_properties();
 
-		// no MailsterCF7 settings
+		// no Mailster settings
 		if ( ! isset( $properties['mailster'] ) ) {
 			return $result;
 		}
@@ -206,7 +206,7 @@ class MailsterCF7 {
 	public function panel( $panels ) {
 
 		$panels['mailster'] = array(
-			'title' => 'MailsterCF7',
+			'title' => 'Mailster',
 			'callback' => array( $this, 'editor_panel' ),
 		);
 
@@ -222,18 +222,18 @@ class MailsterCF7 {
 	 */
 	public function editor_panel( $post ) {
 
-		// check if MailsterCF7 is enabled
+		// check if Mailster is enabled
 		if ( ! function_exists( 'mailster' ) ) {
 
 			$all_plugins = get_plugins();
 
 			if ( isset( $all_plugins['mailster/mailster.php'] ) ) {
 
-				echo '<div class="error inline"><p>Please enable the <a href="plugins.php#mailster-email-newsletter-plugin-for-wordpress">MailsterCF7 Newsletter Plugin</a> to get access to this tab</p></div>';
+				echo '<div class="error inline"><p>Please enable the <a href="plugins.php#mailster-email-newsletter-plugin-for-wordpress">Mailster Newsletter Plugin</a> to get access to this tab</p></div>';
 
 			} else {
 
-				echo '<div class="error inline"><p>You need the <a href="http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+MailsterCF7+Newsletter">MailsterCF7 Newsletter Plugin for WordPress</a> to use your Form with MailsterCF7</p></div>';
+				echo '<div class="error inline"><p>You need the <a href="http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter">Mailster Newsletter Plugin for WordPress</a> to use your Form with Mailster</p></div>';
 
 			}
 
@@ -288,7 +288,7 @@ class MailsterCF7 {
 		<label><?php _e( 'Map Fields', 'mailster-cf7' ) ?></label>
 	</th>
 	<td>
-		<p class="description"><?php _e( 'define which field represents which value from your MailsterCF7 settings', 'mailster-cf7' ) ?></p>
+		<p class="description"><?php _e( 'define which field represents which value from your Mailster settings', 'mailster-cf7' ) ?></p>
 		<?php
 		$fields = array(
 			'email' => mailster_text( 'email' ),

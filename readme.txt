@@ -2,7 +2,7 @@
 Contributors: everpress, revaxarts
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
-Tested up to: 4.7.2
+Tested up to: 4.7.3
 Stable tag: 1.0
 License: GPLv2 or later
 Author: revaxarts
