@@ -3,7 +3,7 @@ Contributors: everpress, revaxarts
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
 Tested up to: 4.7.4
-Stable tag: 1.0.1
+Stable tag: 1.0
 License: GPLv2 or later
 Author: revaxarts
 Author URI: https://mailster.co

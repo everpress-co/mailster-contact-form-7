@@ -3,14 +3,14 @@
 Plugin Name: Mailster Contact Form 7
 Plugin URI: http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster
 Description: Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter
-Version: 1.0.1
+Version: 1.0
 Author: revaxarts.com
 Author URI: https://mailster.co
 License: GPLv2 or later
 Text Domain: mailster-cf7
 */
 
-define( 'MYMAIL_CF7_VERSION', '1.0.1' );
+define( 'MYMAIL_CF7_VERSION', '1.0' );
 define( 'MYMAIL_CF7_REQUIRED_VERSION', '2.2' );
 
 class MailsterCF7 {
