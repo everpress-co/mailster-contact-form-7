@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Mailster Contact Form 7
-Plugin URI: http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster
+Plugin URI: https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster
 Description: Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter
 Version: 1.0.1
-Author: revaxarts.com
+Author: EverPress
 Author URI: https://mailster.co
 License: GPLv2 or later
 Text Domain: mailster-cf7
@@ -240,7 +240,7 @@ class MailsterCF7 {
 
 			} else {
 
-				echo '<div class="error inline"><p>You need the <a href="http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter">Mailster Newsletter Plugin for WordPress</a> to use your Form with Mailster</p></div>';
+				echo '<div class="error inline"><p>You need the <a href="https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter">Mailster Newsletter Plugin for WordPress</a> to use your Form with Mailster</p></div>';
 
 			}
 

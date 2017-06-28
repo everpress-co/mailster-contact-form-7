@@ -2,17 +2,17 @@
 Contributors: everpress, revaxarts
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
-Tested up to: 4.7.4
+Tested up to: 4.8
 Stable tag: 1.0.1
 License: GPLv2 or later
-Author: revaxarts
+Author: EverPress
 Author URI: https://mailster.co
 
 == Description ==
 
 Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter.
 
-> This Plugin requires [Mailster Newsletter Plugin for WordPress](http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
+> This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
 
 == Installation ==
 
@@ -36,5 +36,5 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 
 == Additional Info One ==
 
-This Plugin requires [Mailster Newsletter Plugin for WordPress](http://rxa.li/mailster?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
+This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
 
