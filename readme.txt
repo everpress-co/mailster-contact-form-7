@@ -3,7 +3,7 @@ Contributors: everpress, revaxarts
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
 Tested up to: 4.8
-Stable tag: 1.0.1
+Stable tag: 1.1
 License: GPLv2 or later
 Author: EverPress
 Author URI: https://mailster.co
@@ -27,6 +27,11 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 1. Option Interface.
 
 == Changelog ==
+
+= 1.1 =
+* improved: Subscribers are added only if the form has been submitted successful
+* added: new option to disable error message for existing subscribers
+* added: new option to define error message.
 
 = 1.0.1 =
 * fixed: PHP Warning

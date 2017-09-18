@@ -3,20 +3,22 @@
 Plugin Name: Mailster Contact Form 7
 Plugin URI: https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster
 Description: Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter
-Version: 1.0.1
+Version: 1.1
 Author: EverPress
 Author URI: https://mailster.co
 License: GPLv2 or later
 Text Domain: mailster-cf7
 */
 
-define( 'MYMAIL_CF7_VERSION', '1.0.1' );
-define( 'MYMAIL_CF7_REQUIRED_VERSION', '2.2' );
+define( 'MAILSTER_CF7_VERSION', '1.1' );
+define( 'MAILSTER_CF7_REQUIRED_VERSION', '2.2.10' );
 
 class MailsterCF7 {
 
 	private $plugin_path;
 	private $plugin_url;
+
+	private $userdata;
 
 	public function __construct() {
 
@@ -98,45 +100,64 @@ class MailsterCF7 {
 		}
 
 		// checkbox defined but not checked
-		if ( $properties['checkbox'] && empty( $posted_data[ $properties['checkboxfield'] ][0] ) ) {
+		if ( isset( $properties['checkbox'] ) && $properties['checkbox'] && empty( $posted_data[ $properties['checkboxfield'] ][0] ) ) {
 			return $result;
 		}
 
-		$userdata = array();
+		$this->userdata = array();
+		$tag_keys = array_flip( array_filter( wp_list_pluck( $tags, 'name' ) ) );
 
 		foreach ( $properties['fields'] as $field => $tag ) {
-			$userdata[ $field ] = is_array( $posted_data[ $tag ] ) ? $posted_data[ $tag ][0] : $posted_data[ $tag ];
+			$this->userdata[ $field ] = is_array( $posted_data[ $tag ] ) ? $posted_data[ $tag ][0] : $posted_data[ $tag ];
 		}
 
-		$userdata['status'] = $properties['doubleoptin'] ? 0 : 1;
+		$this->userdata['status'] = $properties['doubleoptin'] ? 0 : 1;
 
-		$list_ids = isset( $properties['lists'] ) ? (array) $properties['lists'] : null;
+		$this->userdata = apply_filters( 'mailster_verify_subscriber', $this->userdata );
+
+		if ( is_wp_error( $this->userdata ) ) {
+
+			$result->invalidate( $tags[ $tag_keys[ $properties['fields'][ $this->userdata->get_error_code() ] ] ], $this->userdata->get_error_message() );
+			return $result;
+		}
+
 		$overwrite = $properties['overwrite'];
 
-		// add subscriber
-		$subscriber_id = mailster( 'subscribers' )->add( $userdata, $overwrite );
-
-		// no error
-		if ( ! is_wp_error( $subscriber_id ) ) {
-
-			if ( $list_ids ) {
-				mailster( 'subscribers' )->assign_lists( $subscriber_id, $list_ids );
-			}
-
-			// something went wrong
-		} else {
-
-			if ( $subscriber_id->get_error_code() == 'email_exists' ) {
-				$message = __( 'You are already registered', 'mailster-cf7' );
-			} else {
-				$message = __( 'There was a problem submitting the form', 'mailster-cf7' );
-			}
-
-			$result->invalidate( $tags[ count( $tags ) -2 ], $message );
+		if ( ! $overwrite && mailster( 'subscribers' )->get_by_mail( $this->userdata['email'] ) ) {
+			$error_message = isset( $properties['error_message'] ) ? $properties['error_message'] : __( 'You are already registered!', 'mailster-cf7' );
+			$result->invalidate( $tags[ $tag_keys[ $properties['fields']['email'] ] ],  $error_message );
+			return $result;
 		}
 
+		add_action( 'wpcf7_mail_sent', array( $this, 'add_subscriber' ) );
 		return $result;
 
+	}
+
+
+	/**
+	 *
+	 *
+	 * @param unknown $contact_form
+	 */
+	public function add_subscriber( $contact_form ) {
+
+		$form = WPCF7_ContactForm::get_current();
+
+		$properties = $form->get_properties();
+		$properties = $properties['mailster'];
+
+		$list_ids = isset( $properties['lists'] ) ? (array) $properties['lists'] : null;
+
+		// add subscriber
+		$subscriber_id = mailster( 'subscribers' )->add( $this->userdata, 1 == $properties['overwrite'] );
+
+		// no error
+		if ( ! is_wp_error( $subscriber_id ) && $list_ids ) {
+
+			mailster( 'subscribers' )->assign_lists( $subscriber_id, $list_ids );
+
+		}
 	}
 
 
@@ -252,6 +273,7 @@ class MailsterCF7 {
 			'checkbox' => false,
 			'doubleoptin' => true,
 			'overwrite' => false,
+			'error_message' => __( 'You are already registered', 'mailster-cf7' ),
 			'skip_mail' => false,
 			'checkboxfield' => 'your-checkbox',
 			'lists' => array(),
@@ -267,8 +289,8 @@ class MailsterCF7 {
 			);
 		}
 
-		wp_enqueue_script( 'cf7-mailster', $this->plugin_url . '/assets/js/script.js', array( 'jquery' ) , MYMAIL_CF7_VERSION, true );
-		wp_enqueue_style( 'cf7-mailster', $this->plugin_url . '/assets/css/style.css', array() , MYMAIL_CF7_VERSION );
+		wp_enqueue_script( 'cf7-mailster', $this->plugin_url . '/assets/js/script.js', array( 'jquery' ) , MAILSTER_CF7_VERSION, true );
+		wp_enqueue_style( 'cf7-mailster', $this->plugin_url . '/assets/css/style.css', array() , MAILSTER_CF7_VERSION );
 
 		$tags = $post->form_scan_shortcode();
 		$simpletags = wp_list_pluck( $tags, 'name' );
@@ -349,7 +371,17 @@ class MailsterCF7 {
 		<label>Overwrite</label>
 	</th>
 	<td>
-		<label><input type="hidden" name="mailster[overwrite]" value=""><input type="checkbox" name="mailster[overwrite]" value="1" <?php checked( $s['overwrite'] ); ?>> Overwrite user if exists</label>
+		<label><input type="radio" name="mailster[overwrite]" value="0" <?php checked( ! $s['overwrite'] ); ?>> Do not overwrite with error message</label><br>
+		<label><input type="radio" name="mailster[overwrite]" value="2" <?php checked( $s['overwrite'], 2 ); ?>> Do not overwrite without error message</label><br>
+		<label><input type="radio" name="mailster[overwrite]" value="1" <?php checked( $s['overwrite'] ); ?>> Always overwrite</label>
+	</td>
+	</tr>
+	<tr>
+	<th scope="row">
+		<label>Error Message</label>
+	</th>
+	<td>
+		<label><input type="text" name="mailster[error_message]" value="<?php echo esc_attr( $s['error_message'] ); ?>" class="regular-text"></label>
 	</td>
 	</tr>
 	<tr>
@@ -405,6 +437,5 @@ class MailsterCF7 {
 
 
 }
-
 
 new MailsterCF7();
