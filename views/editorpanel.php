@@ -104,7 +104,8 @@
 		<td>
 			<label><input type="radio" name="mailster[overwrite]" value="0" <?php checked( ! $s['overwrite'] ); ?>> <?php esc_html_e( 'Do not overwrite with error message', 'mailster-cf7' ) ?></label><br>
 			<label><input type="radio" name="mailster[overwrite]" value="2" <?php checked( $s['overwrite'], 2 ); ?>> <?php esc_html_e( 'Do not overwrite without error message', 'mailster-cf7' ) ?></label><br>
-			<label><input type="radio" name="mailster[overwrite]" value="1" <?php checked( $s['overwrite'] ); ?>> <?php esc_html_e( 'Always overwrite', 'mailster-cf7' ) ?></label>
+			<label><input type="radio" name="mailster[overwrite]" value="1" <?php checked( $s['overwrite'], 1 ); ?>> <?php esc_html_e( 'Always overwrite', 'mailster-cf7' ) ?></label><br>
+			<label><input type="radio" name="mailster[overwrite]" value="3" <?php checked( $s['overwrite'], 3 ); ?>> <?php esc_html_e( 'Always overwrite and keep existing data', 'mailster-cf7' ) ?></label>
 		</td>
 	</tr>
 	<tr>

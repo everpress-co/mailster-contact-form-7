@@ -135,9 +135,11 @@ class MailsterCF7 {
 		$properties = $properties['mailster'];
 
 		$list_ids = isset( $properties['lists'] ) ? (array) $properties['lists'] : null;
+		$overwrite = 1 == $properties['overwrite'];
+		$merge = 3 == $properties['overwrite'];
 
 		// add subscriber
-		$subscriber_id = mailster( 'subscribers' )->add( $this->userdata, 1 == $properties['overwrite'] );
+		$subscriber_id = mailster( 'subscribers' )->add( $this->userdata, $overwrite || $merge, $merge );
 
 		// no error
 		if ( ! is_wp_error( $subscriber_id ) && $list_ids ) {

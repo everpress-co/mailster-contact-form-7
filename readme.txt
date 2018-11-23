@@ -2,8 +2,8 @@
 Contributors: everpress, revaxarts
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
-Tested up to: 4.8
-Stable tag: 1.2
+Tested up to: 4.9
+Stable tag: 1.3
 License: GPLv2 or later
 Author: EverPress
 Author URI: https://mailster.co
@@ -27,6 +27,9 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 1. Option Interface.
 
 == Changelog ==
+
+= 1.3 =
+* new option: 'Always overwrite and keep existing data' to merge data on existing subscribers.
 
 = 1.2 =
 * updated file structure
