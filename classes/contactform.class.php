@@ -100,6 +100,10 @@ class MailsterCF7 {
 
 		$this->userdata['status'] = $properties['doubleoptin'] ? 0 : 1;
 
+		if ( isset( $properties['gdpr_timestamp'] ) && $properties['gdpr_timestamp'] ) {
+			$this->userdata['gdpr'] = time();
+		}
+
 		$this->userdata = apply_filters( 'mailster_verify_subscriber', $this->userdata );
 
 		if ( is_wp_error( $this->userdata ) ) {
@@ -156,6 +160,10 @@ class MailsterCF7 {
 	 * @param unknown $contact_form
 	 */
 	public function save( $contact_form ) {
+
+		if ( ! isset( $_POST['mailster'] ) ) {
+			return;
+		}
 
 		$properties['mailster'] = $_POST['mailster'];
 

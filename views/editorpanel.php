@@ -24,7 +24,7 @@
 	wp_enqueue_script( 'cf7-mailster', $this->plugin_url . '/assets/js/script.js', array( 'jquery' ) , MAILSTER_CF7_VERSION, true );
 	wp_enqueue_style( 'cf7-mailster', $this->plugin_url . '/assets/css/style.css', array() , MAILSTER_CF7_VERSION );
 
-	$tags = $post->form_scan_shortcode();
+	$tags = $post->scan_form_tags();
 	$simpletags = wp_list_pluck( $tags, 'name' );
 	$checkboxes = array();
 
@@ -85,6 +85,15 @@
 		</th>
 		<td>
 			<label><input type="hidden" name="mailster[checkbox]" value=""><input type="checkbox" name="mailster[checkbox]" value="1" <?php checked( $s['checkbox'] ); ?>> <?php printf( esc_html__( 'User must check field %s to get subscribed', 'mailster-cf7' ), $this->get_tags_dropdown( $checkboxes, $s['checkboxfield'], 'mailster[checkboxfield]' ) ) ?></label>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<label><?php esc_html_e( 'Set GDPR Timestamp', 'mailster-cf7' ) ?></label>
+		</th>
+		<td>
+			<label>
+			<input type="hidden" name="mailster[gdpr_timestamp]" value=""><input type="checkbox" name="mailster[gdpr_timestamp]" value="1" <?php checked( $s['gdpr_timestamp'] ); ?>> <?php esc_html_e( 'Store GDPR timestamp on signup', 'mailster-cf7' ) ?></label>
 		</td>
 	</tr>
 	<?php endif; ?>
