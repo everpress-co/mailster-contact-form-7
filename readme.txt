@@ -1,5 +1,5 @@
 === Mailster Contact Form 7 ===
-Contributors: everpress, revaxarts
+Contributors: everpress
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
 Tested up to: 5.0
