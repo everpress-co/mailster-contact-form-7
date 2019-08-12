@@ -10,7 +10,7 @@ class MailsterCF7 {
 	public function __construct() {
 
 		$this->plugin_path = plugin_dir_path( MAILSTER_CF7_FILE );
-		$this->plugin_url = plugin_dir_url( MAILSTER_CF7_FILE );
+		$this->plugin_url  = plugin_dir_url( MAILSTER_CF7_FILE );
 
 		register_activation_hook( MAILSTER_CF7_FILE, array( &$this, 'activate' ) );
 		register_deactivation_hook( MAILSTER_CF7_FILE, array( &$this, 'deactivate' ) );
@@ -43,7 +43,7 @@ class MailsterCF7 {
 		add_filter( 'wpcf7_editor_panels', array( $this, 'panel' ) );
 		add_filter( 'wpcf7_contact_form_properties', array( $this, 'form_properties' ), 10, 2 );
 		add_action( 'wpcf7_save_contact_form', array( $this, 'save' ) );
-		add_action( 'wpcf7_skip_mail', array( $this, 'skip_mail' ), 10 , 2 );
+		add_action( 'wpcf7_skip_mail', array( $this, 'skip_mail' ), 10, 2 );
 
 	}
 
@@ -92,7 +92,7 @@ class MailsterCF7 {
 		}
 
 		$this->userdata = array();
-		$tag_keys = array_flip( array_filter( wp_list_pluck( $tags, 'name' ) ) );
+		$tag_keys       = array_flip( array_filter( wp_list_pluck( $tags, 'name' ) ) );
 
 		foreach ( $properties['fields'] as $field => $tag ) {
 			$this->userdata[ $field ] = is_array( $posted_data[ $tag ] ) ? $posted_data[ $tag ][0] : $posted_data[ $tag ];
@@ -116,7 +116,7 @@ class MailsterCF7 {
 
 		if ( ! $overwrite && mailster( 'subscribers' )->get_by_mail( $this->userdata['email'] ) ) {
 			$error_message = isset( $properties['error_message'] ) ? $properties['error_message'] : __( 'You are already registered!', 'mailster-cf7' );
-			$result->invalidate( $tags[ $tag_keys[ $properties['fields']['email'] ] ],  $error_message );
+			$result->invalidate( $tags[ $tag_keys[ $properties['fields']['email'] ] ], $error_message );
 			return $result;
 		}
 
@@ -138,9 +138,9 @@ class MailsterCF7 {
 		$properties = $form->get_properties();
 		$properties = $properties['mailster'];
 
-		$list_ids = isset( $properties['lists'] ) ? (array) $properties['lists'] : null;
+		$list_ids  = isset( $properties['lists'] ) ? (array) $properties['lists'] : null;
 		$overwrite = 1 == $properties['overwrite'];
-		$merge = 3 == $properties['overwrite'];
+		$merge     = 3 == $properties['overwrite'];
 
 		// add subscriber
 		$subscriber_id = mailster( 'subscribers' )->add( $this->userdata, $overwrite || $merge, $merge );
@@ -195,7 +195,7 @@ class MailsterCF7 {
 	 */
 	public function form_properties( $properties, $form ) {
 
-		$properties['mailster'] = isset( $properties['mailster'] ) ? $properties['mailster'] : array() ;
+		$properties['mailster'] = isset( $properties['mailster'] ) ? $properties['mailster'] : array();
 
 		return $properties;
 	}
@@ -231,7 +231,7 @@ class MailsterCF7 {
 	public function panel( $panels ) {
 
 		$panels['mailster'] = array(
-			'title' => 'Mailster',
+			'title'    => 'Mailster',
 			'callback' => array( $this, 'editor_panel' ),
 		);
 
@@ -280,7 +280,7 @@ class MailsterCF7 {
 	 */
 	private function get_tags_dropdown( $tags, $selected, $name ) {
 
-		$tagsdropdown = '<select name="' . esc_attr( $name ) . '">';
+		$tagsdropdown  = '<select name="' . esc_attr( $name ) . '">';
 		$tagsdropdown .= '<option value="0">' . __( 'choose tag', 'mailster-cf7' ) . '</option>';
 		foreach ( $tags as $tag ) {
 			if ( ! empty( $tag ) ) {
