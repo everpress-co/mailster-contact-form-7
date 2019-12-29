@@ -12,7 +12,7 @@ Author URI: https://mailster.co
 
 Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter.
 
-> This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
+> This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter&utm_medium=readme)
 
 == Installation ==
 
@@ -52,7 +52,7 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 = 1.0 =
 * initial release
 
-== Additional Info One ==
+== Additional Info ==
 
-This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter)
+This Plugin requires [Mailster Newsletter Plugin for WordPress](https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter&utm_medium=readme)
 

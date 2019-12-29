@@ -258,7 +258,7 @@ class MailsterCF7 {
 
 			} else {
 
-				echo '<div class="error inline"><p>You need the <a href="https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter">Mailster Newsletter Plugin for WordPress</a> to use your Form with Mailster</p></div>';
+				echo '<div class="error inline"><p>You need the <a href="https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster+Newsletter&utm_medium=plugin">Mailster Newsletter Plugin for WordPress</a> to use your Form with Mailster</p></div>';
 
 			}
 
