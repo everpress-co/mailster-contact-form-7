@@ -44,6 +44,7 @@ class MailsterCF7 {
 		add_filter( 'wpcf7_contact_form_properties', array( $this, 'form_properties' ), 10, 2 );
 		add_action( 'wpcf7_save_contact_form', array( $this, 'save' ) );
 		add_action( 'wpcf7_skip_mail', array( $this, 'skip_mail' ), 10, 2 );
+		add_filter( 'wpcf7_pre_construct_contact_form_properties', array( $this, 'form_properties' ), 10, 2 );
 
 	}
 

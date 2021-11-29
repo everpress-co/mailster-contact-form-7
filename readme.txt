@@ -3,7 +3,7 @@ Contributors: everpress
 Tags: mailster, contact form 7, newsletter, signup form
 Requires at least: 3.8
 Tested up to: 5.8
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 Author: EverPress
 Author URI: https://mailster.co
@@ -27,6 +27,9 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 1. Option Interface.
 
 == Changelog ==
+
+= 1.5 =
+* fixed: support for CF7 5.5.3
 
 = 1.4 =
 * added: options to store GDPR timestamp
