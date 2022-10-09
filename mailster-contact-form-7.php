@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Mailster Contact Form 7
-Plugin URI: https://mailster.co/?utm_campaign=wporg&utm_source=Contact+Form+7+for+Mailster&utm_medium=plugin
+Plugin URI: https://mailster.co/?utm_campaign=wporg&utm_source=wordpress.org&utm_medium=plugin&utm_term=Contact+Form+7+for+Mailster
 Description: Create your Signup Forms with Contact Form 7 and allow users to signup to your newsletter
 Version: 1.5
 Author: EverPress
