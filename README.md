@@ -4,7 +4,7 @@ Contributors: everpress, xaverb
 Tags: mailster, contact form 7, newsletter, signup form  
 Requires at least: 3.8  
 Tested up to: 6.0  
-Stable tag: 1.5  
+Stable tag: 1.5.1  
 License: GPLv2 or later
 
 ## Description
@@ -28,6 +28,10 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 ![Option Interface.](https://ps.w.org/mailster-contact-form-7/assets/screenshot-1.png)
 
 ## Changelog
+
+### 1.5.1
+
+-   fix for WordPress 6.1
 
 ### 1.5
 
