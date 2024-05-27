@@ -1,9 +1,9 @@
 # Mailster Contact Form 7
 
-Contributors: everpress, xaverb  
+Contributors: everpress, mailster, xaverb  
 Tags: mailster, contact form 7, newsletter, signup form  
-Requires at least: 3.8  
-Tested up to: 6.0  
+Requires at least: 6.0  
+Tested up to: 6.5  
 Stable tag: 1.5.1  
 License: GPLv2 or later
 
@@ -23,7 +23,7 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 
 ## Screenshots
 
-### 1. Option Interface.
+### 1. Option Interface
 
 ![Option Interface.](https://ps.w.org/mailster-contact-form-7/assets/screenshot-1.png)
 
@@ -31,42 +31,42 @@ Create your Signup Forms with Contact Form 7 and allow users to signup to your n
 
 ### 1.5.1
 
--   fix for WordPress 6.1
+- fix for WordPress 6.1
 
 ### 1.5
 
--   fixed: support for CF7 5.5.3
+- fixed: support for CF7 5.5.3
 
 ### 1.4
 
--   added: options to store GDPR timestamp
+- added: options to store GDPR timestamp
 
 ### 1.3.1
 
--   fixed: removed deprecated method
+- fixed: removed deprecated method
 
 ### 1.3
 
--   new option: 'Always overwrite and keep existing data' to merge data on existing subscribers.
+- new option: 'Always overwrite and keep existing data' to merge data on existing subscribers.
 
 ### 1.2
 
--   updated file structure
--   added translatable strings
+- updated file structure
+- added translatable strings
 
 ### 1.1
 
--   improved: Subscribers are added only if the form has been submitted successful
--   added: new option to disable error message for existing subscribers
--   added: new option to define error message.
+- improved: Subscribers are added only if the form has been submitted successful
+- added: new option to disable error message for existing subscribers
+- added: new option to define error message.
 
 ### 1.0.1
 
--   fixed: PHP Warning
+- fixed: PHP Warning
 
 ### 1.0
 
--   initial release
+- initial release
 
 ## Additional Info
 
