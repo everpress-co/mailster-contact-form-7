@@ -1,0 +1,27 @@
+{
+	"name": "mailster-contact-form-7",
+	"version": "1.5.1",
+	"author": "everpress",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"files": [
+		"views",
+		"classes",
+		"vendor",
+		"includes",
+		"assets",
+		"*.php"
+	],
+	"devDependencies": {
+		"@wordpress/env": "^10.34.0",
+		"@wordpress/scripts": "^30.27.0"
+	}
+}
