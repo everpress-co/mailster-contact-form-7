@@ -31,8 +31,9 @@
 	$simpletags = wp_list_pluck( $tags, 'name' );
 	$checkboxes = array();
 
+
 	foreach ( $tags as $tag ) {
-		if ( $tag['basetype'] == 'checkbox' ) {
+		if ( $tag['basetype'] == 'checkbox' || $tag['basetype'] == 'acceptance' ) {
 			$checkboxes[] = $tag['name'];
 		}
 	}
@@ -96,7 +97,7 @@
 		</th>
 		<td>
 			<label>
-			<input type="hidden" name="mailster[gdpr_timestamp]" value=""><input type="checkbox" name="mailster[gdpr_timestamp]" value="1" <?php checked( $s['gdpr_timestamp'] ); ?>> <?php esc_html_e( 'Store GDPR timestamp on signup', 'mailster-cf7' ); ?></label>
+			<input type="hidden" name="mailster[gdpr_timestamp]" value=""><input type="checkbox" name="mailster[gdpr_timestamp]" value="1" <?php checked( isset( $s['gdpr_timestamp'] ) && $s['gdpr_timestamp'] ); ?>> <?php esc_html_e( 'Store GDPR timestamp on signup', 'mailster-cf7' ); ?></label>
 		</td>
 	</tr>
 	<?php endif; ?>
