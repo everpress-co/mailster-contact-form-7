@@ -3,7 +3,7 @@
 Contributors: everpress, mailster, xaverb  
 Tags: mailster, contact form 7, newsletter, signup form  
 Requires at least: 6.0  
-Tested up to: 6.8  
+Tested up to: 6.9  
 Stable tag: 1.6.0  
 License: GPLv2 or later
 
